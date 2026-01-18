@@ -8,6 +8,7 @@ configuration {
     matching: "normal,prefix";
     run-command: "fish -c '{cmd}'";
     disable-history: false;
+    vertical-align: 0.5;
 }
 
 * {
@@ -30,7 +31,8 @@ configuration {
     border-radius:    15;
     border-color:     @bordercolor;
     padding:          15;
-    height: 	      40%;
+    --height: 	      20%;
+    width: 	      30%;
 }
 #mainbox {
     border:  0;
@@ -45,12 +47,13 @@ configuration {
     text-color: @foreground;
 }
 #listview {
-    fixed-height: 0;
+    --dynamic: true;
     border:       0px;
     border-color: @bordercolor;
     spacing:      2px ;
     scrollbar:    false;
     padding:      2px 0px 0px ;
+    lines: 5;
 }
 #element {
     border:  0;
