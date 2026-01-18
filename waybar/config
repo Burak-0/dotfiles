@@ -1,0 +1,238 @@
+
+[{
+  "include": "~/.config/waybar/custom_modules/modules",
+  "layer": "top",
+  "height": 30, 
+  "margin-top": -4,
+  "margin-left": -5,
+  "margin-bottom": 0,
+  "margin-right": -5,
+  "spacing": 0,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/spotify",
+    "group/windows"
+  ],
+
+  "modules-center": [
+    "clock",
+    "custom/notification"
+  ],
+
+  "modules-right": [
+    "group/minimized",
+    "group/clickable",
+    "battery",
+    "custom/power-menu"
+  ],
+
+  "clock": {
+    "format": "<b>{:%I:%M %p}</b>",
+    "format-alt": "<b>{:%a. %d, %b}</b>",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click-right": "gnome-calendar"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} <b>{percent}</b>",
+    "tooltip": false,
+    "format-icons": ["", ""],
+    "on-scroll-down": "brightnessctl s 5%-",
+    "on-scroll-up": "brightnessctl s +5%",
+    "on-click": "better-control -m -d"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} <b>{volume}</b>",
+    "format-bluetooth": "<b>󰗾  {volume}</b>",
+    "format-bluetooth-muted": "<b>󰗿 </b>",
+    "format-source": "",
+    "format-source-muted": "",
+    "tooltip": false,
+    "format-muted": "  ",
+    "on-click": "better-control -m -v",
+    "on-click-right": "amixer sset Master toggle 1>/dev/null",
+    "format-icons": {
+            "headphone": "",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": ["", " ", " "]
+        },
+  },
+  
+  "cpu": {
+    "interval": 10,
+    "format": " <b>{usage}%</b>",
+    "max-length": 10,
+    "tooltip": false
+  },
+
+  "memory": {
+    "interval": 60,
+    "format": "<b>   {used:0.1f} GB</b>",
+    "on-click": "kitty -e btop",
+    "tooltip-format": "{used:0.2f} / {total:0.2f} GB\n{swapUsed:0.2f} / {swapTotal:0.2f} GB"
+  },
+
+  "temperature": {
+    "thermal-zone": 0,
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C</b>",
+    "format": " <b>{temperatureC}°C</b>",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "<b>{name}</b>",
+    "format-icons": {
+      "urgent": "󰗖",
+      "default": ""
+    }
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 2,
+    "expand": true,
+    "show-passive-items": true
+  },
+
+  "battery": {
+    "interval": 5,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} <b>{capacity}%</b>",
+    "format-charging": "{icon}⚡︎ <b>{capacity}%</b>",
+    "on-click": "better-control -m -B",
+    "plugged": "ﮣ",
+    "format-icons": ["", "", "", ""],
+    "max-length": 25,
+    "tooltip": false
+  },
+
+  "network": {
+    "format": "<b></b>",
+    "format-wifi": "",
+    "format-ethernet": "<b>모</b>",
+    "tooltip": false,
+    "on-click": "better-control -m -w", 
+    "format-disconnected": "<b>⚠</b>",
+    "fomrat-disabled": "<b>⚠</b>"
+  },
+
+  "bluetooth": {
+    "format": "<b>󰂳</b>",
+    "format-connected": "<b>󰂯 {num_connections}</b>",
+    "format-on": "<b>󰂯</b>",
+    "format-off": "<b>󰂲</b>",
+    "on-click" : "better-control -m -b",
+    "on-click-right": "bluetoothctl power $(bluetoothctl show | grep -q 'Powered: yes' && echo off || echo on)",
+    "tooltip": false
+  },
+    
+   "custom/spotify": {
+     "exec": "~/.config/waybar/mediaplayer.py --player spotify",
+     "format": "{} ",
+     "return-type": "json",
+     "max-length": 30,
+     "tooltip": true,
+     "tooltip-format": "{}",
+     "on-click": "playerctl -p spotify play-pause",
+     "on-scroll-up": "playerctl -p spotify previous",
+     "on-scroll-down": "playerctl -p spotify next"
+   },
+   
+   "custom/trayexpand": {
+    "format": "<b>⯇</b>",
+    "tooltip": false
+   },
+
+   "custom/windowexpand": {
+    "format": "<b>⯈</b>",
+    "tooltip": false
+   },
+   
+   "custom/appexpand": {
+    "format": "<b> </b>",
+    "tooltip": false,
+    "on-click": "better-control"
+   },
+
+  "group/windows": {
+    "orientation": "horizontal",
+    "modules": ["custom/windowexpand", "custom/closewindow", "custom/maxwindow", "custom/floatwindow"],
+    "drawer": {
+        "transition-duration": 500,
+        "transition-left-to-right": true,
+        "children-class": "minimized"
+     }
+   },
+
+   "group/minimized": {
+    "orientation": "horizontal",
+    "modules": ["custom/trayexpand", "tray"],
+    "drawer": {
+        "transition-duration": 500,
+	"transition-left-to-right": false,
+	"children-class": "minimized"
+     }
+   },
+   
+   "group/clickable": {
+    "orientation": "horizontal",
+    "modules": ["custom/appexpand", "backlight", "pulseaudio", "bluetooth", "network"],
+    "drawer": {
+        "transition-duration": 500,
+	"transition-left-to-right": false,
+	"children-class": "minimized"
+     }
+   },
+
+   "custom/closewindow": {
+    "tooltip": false,
+    "format": " ",
+    "on-click": "hyprctl dispatch killactive"
+   },
+
+   "custom/maxwindow": {
+    "tooltip": false,
+    "format": "",
+    "on-click": "hyprctl dispatch fullscreen 1"
+   },
+
+   "custom/floatwindow": {
+    "tooltip": false,
+    "format": "  ",
+    "on-click": "hyprctl dispatch togglefloating && hyprctl dispatch resizeactive exact 80% 80% && hyprctl dispatch centerwindow"
+   },
+
+   "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "",
+      "none": "",
+      "dnd-notification": "",
+      "dnd-none": "",
+      "inhibited-notification": "",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
+}]

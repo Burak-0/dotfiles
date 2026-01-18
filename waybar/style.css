@@ -1,0 +1,156 @@
+* {
+  font-family: JetBrainsMonoNL Font;
+  font-size: 16px;
+  min-height: 0;
+  padding: 0px 5px 0px 5px;
+  border-radius: 11px;
+  opacity: 0.98;
+  color: white; /* Set text color to white globally */
+}
+
+window#waybar {
+    background: rgba(0,0,0,0);
+}
+
+.modules-right {
+    background-color: rgba(0,0,0,0.7);
+    margin: 8px 5px 0px 0px;
+}
+
+.modules-center {
+    background-color: rgba(0,0,0,0.7);
+    margin: 8px 5px 0 0;
+}
+
+.modules-left {
+    background-color: rgba(0,0,0,0.7);
+    margin: 8px 0 0 5px;
+}
+
+#custom-launcher {
+  font-size: 20px;
+  background: transparent; /* Background color */
+  padding: 0px 15px 0px 4px;
+  margin: 0px;
+}
+
+#cpu {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 5px;
+}
+
+#memory {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 5px;
+}
+
+#temperature {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 5px;
+}
+
+#custom-pacman-update {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 5px;
+}
+
+#custom-notification {
+  background: transparent; 
+  margin: 0px 0px 0px 0px;
+}
+
+#workspaces {
+  background: transparent; /* Background color */
+}
+
+#workspaces button {
+  border-radius: 15px;
+  padding: 0px;
+}
+
+#workspaces button label {
+  margin: 0px 3px 0px 3px;
+  padding: 0px;
+}
+
+#workspaces button.active {
+  background: #585b70; /* Background color */
+  margin: 3px 0px 3px 0px;
+  border-radius: 15px;
+}
+
+#battery {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 5px;
+}
+
+#backlight {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 0px;
+}
+
+#pulseaudio {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 0px;
+}
+
+#network {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 5px;
+}
+
+#clock {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 0px;
+}
+
+#memory {
+  background: transparent; /* Background color */
+  margin: 0px 5px 0px 0px;
+}
+
+#tray {
+  background: transparent; /* Background color */
+  margin: 0px 0px 0px 0px;
+}
+
+#custom-power-menu {
+  font-size: 24px;
+  background: transparent; /* Background color */
+  margin: 0px 0px 0px 0px;
+  padding: 0px 10px 0px 5px;
+}
+
+#custom-media-control {
+  background: transparent; /* Background color */
+}
+
+#bluetooth {
+  background: transparent; /* Background color */
+  margin: 0px 0px 0px 0px;
+}
+
+#custom-spotify {
+    background-color: transparent; /* Background color */
+    padding: 0px 5px 0px 5px;
+}
+
+#custom-vpn {
+    background-color: transparent; /* Background color */
+    padding: 0px 0px 0px 0px;
+}
+
+#custom-trayexpand {
+    background: transparent; /* Background color */
+    margin: 0px 0px 0px 0px;
+}
+
+#custom-appexpand {
+    background: transparent; /* Background color */
+    margin: 0px 2px 0px 0px;
+}
+
+#group-minimized {
+    background: transparent; /* Background color */
+    margin: 0px 0px 0px 0px;
+}

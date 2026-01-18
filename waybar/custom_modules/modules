@@ -1,0 +1,52 @@
+{
+  "include": "$HOME/.config/waybar/custom_modules/privacy_container",
+
+  "custom/launcher": {
+    "format": "",
+    "on-click": "wofi --show drun"
+  },
+
+  "custom/pacman-update": {
+    "format": " <b>{}</b>",
+    "interval": 3600,
+    "exec": "checkupdates | wc -l",
+    "signal": 8,
+    "tooltip": false
+  },
+
+  "custom/vpn": {
+  "format": "{icon}",
+  "exec": "~/.config/waybar/scripts/vpn.sh",
+  "return-type": "json",
+  "signal": 10,
+  "on-click": "bash ~/.config/waybar/scripts/vpn.sh --toggle-connection &",
+  "on-click-middle": "bash ~/.config/waybar/scripts/vpn.sh --ip-address &",
+  "on-click-right": "bash ~/.config/waybar/scripts/vpn.sh --location-menu &",
+  "on-exit": "bash ~/.config/waybar/scripts/vpn.sh --exit &",
+  "format-icons": {
+    "connected": "<b><span color=\"#4CBB17\">  </span></b>", 
+    "disconnected": "<b><span color=\"#d81717\">  </span></b>",
+    "default": "  "
+  },
+  "tooltip": false
+},
+
+  "custom/power-menu": {
+    "format": "⏻",
+    "on-click": "better-control -m -p",
+    "tooltip": false
+  },
+
+  "custom/media-control": {
+    "format": "{icon} {}",
+    "return-type": "json",
+    "max-length": 40,
+    "format-icons": {
+        "spotify": "",
+        "default": "🎜"
+    },
+    "escape": true,
+    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources folder
+    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  }
+}

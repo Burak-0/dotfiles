@@ -1,0 +1,34 @@
+BRAVE=$(hyprctl clients | grep "class: brave-browser" | wc -l)
+    CHROMIUM=$(hyprctl clients | grep "class: brave-browser" | wc -l)
+    FIREFOX=$(hyprctl clients | grep "class: firefox" | wc -l)
+
+    if [ "$BRAVE" -gt "1" ]; then
+        notify-send "power controls" "Brave multiple windows open"
+        exit 1
+    elif [ "$CHROMIUM" -gt "1" ]; then
+        notify-send "power controls" "Chromium multiple windows open"
+        exit 1
+    elif [ "$FIREFOX" -gt "1" ]; then
+        notify-send "power controls" "Firefox multiple windows open"
+        exit 1
+    fi
+
+    sleep 3
+
+    # close all client windows
+    # required for graceful exit since many apps aren't good SIGNAL citizens
+    HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
+    hyprctl --batch "$HYPRCMDS" >> /tmp/hypr/hyprexitwithgrace.log 2>&1
+
+    notify-send "power controls" "Closing Applications..."
+
+    sleep 2
+
+    COUNT=$(hyprctl clients | grep "class:" | wc -l)
+    if [ "$COUNT" -eq "0" ]; then
+        notify-send "power controls" "Closed Applications."
+        return
+    else
+        notify-send "power controls" "Some apps didn't close."
+        exit 1
+    fi
