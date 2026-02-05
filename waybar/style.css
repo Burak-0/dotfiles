@@ -1,6 +1,7 @@
 * {
-  font-family: JetBrainsMonoNL Font;
-  font-size: 16px;
+  font-family: "Rubik"; /*"Rubik", "JetBrainsMono Nerd Font Propo", "Noto Sans CJK JP", "Noto Sans CJK KR";*/
+  font-size: 15px;
+  font-weight: bold;
   min-height: 0;
   padding: 0px 5px 0px 5px;
   border-radius: 11px;
@@ -81,7 +82,7 @@ window#waybar {
 
 #battery {
   background: transparent; /* Background color */
-  margin: 0px 5px 0px 5px;
+  margin: 0px 5px 0px 0px;
 }
 
 #backlight {
@@ -101,7 +102,7 @@ window#waybar {
 
 #clock {
   background: transparent; /* Background color */
-  margin: 0px 5px 0px 0px;
+  margin: 0px 1px 0px 0px;
 }
 
 #memory {
@@ -147,7 +148,7 @@ window#waybar {
 
 #custom-appexpand {
     background: transparent; /* Background color */
-    margin: 0px 2px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 #group-minimized {

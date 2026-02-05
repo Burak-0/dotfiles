@@ -16,8 +16,7 @@
   ],
 
   "modules-center": [
-    "clock",
-    "custom/notification"
+    "clock"
   ],
 
   "modules-right": [
@@ -31,7 +30,8 @@
     "format": "<b>{:%I:%M %p}</b>",
     "format-alt": "<b>{:%a. %d, %b}</b>",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    "on-click-right": "gnome-calendar"
+    "on-click-middle": "gnome-calendar",
+    "on-click-right": "swaync-client -t -sw" 
   },
 
   "backlight": {
@@ -55,7 +55,7 @@
     "on-click": "better-control -m -v",
     "on-click-right": "amixer sset Master toggle 1>/dev/null",
     "format-icons": {
-            "headphone": "",
+            "headphone": "",
             "hands-free": " ",
             "headset": " ",
             "phone": " ",
@@ -141,7 +141,7 @@
     
    "custom/spotify": {
      "exec": "~/.config/waybar/mediaplayer.py --player spotify",
-     "format": "{} ",
+     "format": "{}",
      "return-type": "json",
      "max-length": 30,
      "tooltip": true,
@@ -162,7 +162,7 @@
    },
    
    "custom/appexpand": {
-    "format": "<b> </b>",
+    "format": "<b></b>",
     "tooltip": false,
     "on-click": "better-control"
    },
