@@ -45,7 +45,7 @@
   },
 
   "pulseaudio": {
-    "format": "{icon} <b>{volume}</b>",
+    "format": "{icon}  {volume}",  
     "format-bluetooth": "<b>󰗾  {volume}</b>",
     "format-bluetooth-muted": "<b>󰗿 </b>",
     "format-source": "",
@@ -56,8 +56,8 @@
     "on-click-right": "amixer sset Master toggle 1>/dev/null",
     "format-icons": {
             "headphone": "",
-            "hands-free": " ",
-            "headset": " ",
+            "hands-free": "",
+            "headset": "",
             "phone": " ",
             "portable": " ",
             "car": " ",
@@ -89,7 +89,7 @@
 
   "hyprland/workspaces": {
     "disable-scroll": true,
-    "all-outputs": true,
+    "all-outputs": false,
     "format": "<b>{name}</b>",
     "format-icons": {
       "urgent": "󰗖",
@@ -111,7 +111,7 @@
       "critical": 15
     },
     "format": "{icon} <b>{capacity}%</b>",
-    "format-charging": "{icon}⚡︎ <b>{capacity}%</b>",
+    "format-charging": "{icon}  ⚡︎ <b>{capacity}%</b>",
     "on-click": "better-control -m -B",
     "plugged": "ﮣ",
     "format-icons": ["", "", "", ""],
