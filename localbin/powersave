@@ -3,66 +3,66 @@
 STATE_FILE="$HOME/.cache/hypr-powersave.state"
 
 getopt() {
-    hyprctl getoption "$1" | head -n1 | cut -d':' -f2 | xargs
+  hyprctl getoption "$1" | head -n1 | cut -d':' -f2 | xargs
 }
 
 mkdir -p "$HOME/.cache"
 
 case "$1" in
-    status)
-        if [[ -f "$STATE_FILE" ]]; then
-            echo "Power Save: ON 🔋"
-        else
-            echo "Power Save: OFF ⚡"
-        fi
-        exit 0
-        ;;
+status)
+  if [[ -f "$STATE_FILE" ]]; then
+    echo "Power Save: ON 🔋"
+  else
+    echo "Power Save: OFF ⚡"
+  fi
+  exit 0
+  ;;
 esac
 
 if [[ -f "$STATE_FILE" ]]; then
-    ### 🔌 POWER SAVE OFF
-    read -r ACTIVE_OPACITY INACTIVE_OPACITY FULLSCREEN_OPACITY DIM_INACTIVE ROUNDING < "$STATE_FILE"
+  ### 🔌 POWER SAVE OFF
+  read -r ACTIVE_OPACITY INACTIVE_OPACITY FULLSCREEN_OPACITY DIM_INACTIVE ROUNDING <"$STATE_FILE"
 
-    hyprctl keyword animations:enabled true
-    hyprctl keyword decoration:blur:enabled true
-    hyprctl keyword decoration:shadow:enabled true
+  hyprctl keyword animations:enabled true
+  hyprctl keyword decoration:blur:enabled true
+  hyprctl keyword decoration:shadow:enabled true
 
-    hyprctl keyword decoration:active_opacity "$ACTIVE_OPACITY"
-    hyprctl keyword decoration:inactive_opacity "$INACTIVE_OPACITY"
-    hyprctl keyword decoration:fullscreen_opacity "$FULLSCREEN_OPACITY"
-    hyprctl keyword decoration:dim_inactive "$DIM_INACTIVE"
-    hyprctl keyword decoration:rounding "$ROUNDING"
+  hyprctl keyword decoration:active_opacity "$ACTIVE_OPACITY"
+  hyprctl keyword decoration:inactive_opacity "$INACTIVE_OPACITY"
+  hyprctl keyword decoration:fullscreen_opacity "$FULLSCREEN_OPACITY"
+  hyprctl keyword decoration:dim_inactive "$DIM_INACTIVE"
+  hyprctl keyword decoration:rounding "$ROUNDING"
 
-    hyprctl keyword monitor "eDP-2,1920x1080@144,auto,1.25"
+  hyprctl keyword monitor "eDP-2,1920x1080@144,auto,1.25"
 
-    #sudo nvidia-smi -lgc 1200,3105
-    #supergfxctl -m Hybrid    
+  #sudo nvidia-smi -lgc 1200,3105
+  #supergfxctl -m Hybrid
 
-    rm "$STATE_FILE"
-    notify-send "Hyprland" "Power Save OFF ⚡"
+  rm "$STATE_FILE"
+  notify-send "Hyprland" "Power Save OFF ⚡"
 
 else
-    ### 🔋 POWER SAVE ON
-    echo "$(getopt decoration:active_opacity) \
+  ### 🔋 POWER SAVE ON
+  echo "$(getopt decoration:active_opacity) \
           $(getopt decoration:inactive_opacity) \
           $(getopt decoration:fullscreen_opacity) \
           $(getopt decoration:dim_inactive) \
-          $(getopt decoration:rounding)" > "$STATE_FILE"
+          $(getopt decoration:rounding)" >"$STATE_FILE"
 
-    hyprctl keyword animations:enabled false
-    hyprctl keyword decoration:blur:enabled false
-    hyprctl keyword decoration:shadow:enabled false
+  hyprctl keyword animations:enabled false
+  hyprctl keyword decoration:blur:enabled false
+  hyprctl keyword decoration:shadow:enabled false
 
-    hyprctl keyword decoration:active_opacity 1.0
-    hyprctl keyword decoration:inactive_opacity 1.0
-    hyprctl keyword decoration:fullscreen_opacity 1.0
-    hyprctl keyword decoration:rounding 0
-    hyprctl keyword decoration:dim_inactive false
+  hyprctl keyword decoration:active_opacity 1.0
+  hyprctl keyword decoration:inactive_opacity 1.0
+  hyprctl keyword decoration:fullscreen_opacity 1.0
+  hyprctl keyword decoration:rounding 0
+  hyprctl keyword decoration:dim_inactive false
 
-    hyprctl keyword monitor "eDP-2,1920x1080@60,auto,1.25"
+  hyprctl keyword monitor "eDP-2,1920x1080@60,auto,1.25"
 
-    #sudo nvidia-smi -rgc
-    #supergfxctl -m Integrated    
+  #sudo nvidia-smi -rgc
+  #supergfxctl -m Integrated
 
-    notify-send "Hyprland" "Power Save ON 🔋"
+  notify-send "Hyprland" "Power Save ON 🔋"
 fi

@@ -52,8 +52,10 @@
   "widgets": [
     "inhibitors",
     "title",
+    "buttons-grid",
+    "volume",
+    "backlight",
     "dnd",
-    "mpris",
     "notifications"
   ],
   "widget-config": {
@@ -80,10 +82,10 @@
       "blacklist": []
     },
      "volume": {
-            "label": "󰕾 "
+            "label": "󰕾"
         },
         "backlight": {
-            "label": "󰃟 ",
+            "label": "󰃟",
             "device": "intel_backlight",
             "min": 10
         },

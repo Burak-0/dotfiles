@@ -1,7 +1,6 @@
-
 [{
   "include": "~/.config/waybar/custom_modules/modules",
-  "layer": "top",
+  "layer": "bottom",
   "height": 30, 
   "margin-top": -4,
   "margin-left": -5,
@@ -11,12 +10,12 @@
 
   "modules-left": [
     "hyprland/workspaces",
-    "custom/spotify",
-    "group/windows"
+    "custom/spotify"
   ],
 
   "modules-center": [
-    "clock"
+    "clock",
+    "group/windows"
   ],
 
   "modules-right": [
@@ -31,7 +30,9 @@
     "format-alt": "<b>{:%a. %d, %b}</b>",
     "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
     "on-click-middle": "gnome-calendar",
-    "on-click-right": "swaync-client -t -sw" 
+    "on-click-right": "swaync-client -t -sw", 
+    "on-scroll-up": "hyprctl dispatch layoutmsg 'move -col'",
+    "on-scroll-down": "hyprctl dispatch layoutmsg 'move +col'"
   },
 
   "backlight": {
@@ -142,7 +143,7 @@
     
    "custom/spotify": {
      "exec": "~/.config/waybar/mediaplayer.py --player spotify",
-     "format": "{}",
+     "format": "{} ",
      "return-type": "json",
      "max-length": 30,
      "tooltip": true,
@@ -212,7 +213,7 @@
 
    "custom/floatwindow": {
     "tooltip": false,
-    "format": "  ",
+    "format": " ",
     "on-click": "hyprctl dispatch togglefloating && hyprctl dispatch resizeactive exact 80% 80% && hyprctl dispatch centerwindow"
    },
 
