@@ -9,6 +9,11 @@ configuration {
     run-command: "fish -c '{cmd}'";
     disable-history: false;
     vertical-align: 0.5;
+    click-to-exit:    true;
+    hover-select:     true;
+    me-select-entry:  "";
+    me-accept-entry:  "!MousePrimary";
+    kb-cancel: "MousePrimary";
 }
 
 * {

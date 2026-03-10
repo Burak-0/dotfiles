@@ -1,0 +1,23 @@
+configuration {
+  me-select-entry:            "MousePrimary,MouseSecondary";
+  me-accept-entry:            "!MousePrimary";
+  hover-select:               true;
+  show-icons:                 true;
+  font:                       "Fira Sans Regular 11";
+}
+
+/*****----- Main -----*****/
+@theme "~/.config/rofi/theme.rasi"
+
+/*****----- Main Window -----*****/
+window {
+  width:                       500px;
+}
+listbox{
+  children:                    [ "message", "listview" ];
+}
+/*****----- Listview -----*****/
+listview {
+  columns:                     1;
+  lines:                       10;
+}

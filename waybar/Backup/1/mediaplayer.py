@@ -36,13 +36,15 @@ def on_metadata(player, metadata, manager):
             ':ad:' in player.props.metadata['mpris:trackid']:
         track_info = 'AD PLAYING'
     elif player.get_artist() != '' and player.get_title() != '':
-        track_info = '{artist} - {title}'.format(artist=player.get_artist(),
-                                                 title=player.get_title())
+        artist = player.get_artist().replace('&', '&amp;')
+        title = player.get_title().replace('&', '&amp;')
+        track_info = '{artist} - {title}'.format(artist=artist, title=title)
     else:
-        track_info = player.get_title()
+        title = player.get_title().replace('&', '&amp;')
+        track_info = title
 
     if player.props.status != 'Playing' and track_info:
-        track_info = ' ' + track_info
+        track_info = '  ' + track_info
     write_output(track_info, player)
 
 
