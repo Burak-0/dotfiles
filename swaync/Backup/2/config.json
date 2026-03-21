@@ -19,10 +19,10 @@
   "timeout": 10,
   "timeout-low": 5,
   "timeout-critical": 0,
-  "fit-to-screen": false,
+  "fit-to-screen": true,
   "relative-timestamps": true,
   "control-center-width": 400,
-  "control-center-height": 500,
+  "control-center-height": 400,
   "notification-window-width": 350,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
@@ -50,6 +50,11 @@
     }
   },
   "widgets": [
+    "inhibitors",
+    "title",
+    "buttons-grid",
+    "volume",
+    "backlight",
     "dnd",
     "notifications"
   ],

@@ -205,7 +205,6 @@
       "on-click-right": "$ROFI 'rofi -theme-str \"configuration {show-icons: false;} window {location: north east; x-offset: -312; y-offset: 2; width: 250px;} listview {columns: 1;} element-text {vertical-align: 0.50; horizontal-align: 0.50;} inputbar {enabled: false;}\" -modes out:$HOME/.config/rofi/scripts/sound-output-port.sh,in:$HOME/.config/rofi/scripts/sound-input-port.sh -show out'",
       "on-scroll-up": "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 | (swayosd-client --output-volume +1 || wpctl set-volume -l '1.5' @DEFAULT_AUDIO_SINK@ 1%+)",
       "on-scroll-down": "wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 | (swayosd-client --output-volume -1 || wpctl set-volume -l '1.5' @DEFAULT_AUDIO_SINK@ 1%-)",
-      "on-click-middle": "pavucontrol"
     },
 
     "pulseaudio#input": {

@@ -26,6 +26,7 @@ if [[ -f "$STATE_FILE" ]]; then
   hyprctl keyword animations:enabled true
   hyprctl keyword decoration:blur:enabled true
   hyprctl keyword decoration:shadow:enabled true
+  hyprctl keyword misc:disable_autoreload false
 
   hyprctl keyword decoration:active_opacity "$ACTIVE_OPACITY"
   hyprctl keyword decoration:inactive_opacity "$INACTIVE_OPACITY"
@@ -52,6 +53,7 @@ else
   hyprctl keyword animations:enabled false
   hyprctl keyword decoration:blur:enabled false
   hyprctl keyword decoration:shadow:enabled false
+  hyprctl keyword misc:disable_autoreload true
 
   hyprctl keyword decoration:active_opacity 1.0
   hyprctl keyword decoration:inactive_opacity 1.0
