@@ -6,3 +6,4 @@ set -x EDITOR nvim
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+set -gx PATH /usr/local/bin $PATH
