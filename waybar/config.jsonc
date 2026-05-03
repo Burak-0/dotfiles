@@ -79,7 +79,7 @@
       "on-click": "activate",
       "on-scroll-up": "hyprctl dispatch workspace m+1",
       "on-scroll-down": "hyprctl dispatch workspace m-1",
-      "show-special": true,
+      "show-special": false,
       "ignore-workspaces": ["special:magic", "special:magic2"],
     },
 

@@ -1,3 +1,3 @@
-function logout --wraps='hyprctl dispatch exit' --description 'alias logout=hyprctl dispatch exit'
-    hyprshutdown -t 'Logging out...' $argv
+function logout --wraps='hyprctl dispatch exit'
+    hyprctl dispatch exit
 end

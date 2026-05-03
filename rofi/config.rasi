@@ -33,7 +33,7 @@ configuration {
 #window {
     background-color: @background-color;
     border:           2;
-    border-radius:    15;
+    border-radius:    18;
     border-color:     @bordercolor;
     padding:          15;
     --height: 	      20%;
