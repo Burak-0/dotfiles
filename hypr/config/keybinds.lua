@@ -1,4 +1,5 @@
 local alias = require("config.alias")
+local m = hl.get_active_monitor()
 
 -- Keybinds
 hl.bind(alias.mainMod .. " + T", hl.dsp.exec_cmd(alias.browser), { description = "Open browser" })
@@ -186,10 +187,6 @@ hl.bind(
 	{ description = "Bring window to front" }
 )
 
-local m = hl.get_active_monitor()
-local target_w = math.floor(m.width * 0.6)
-local target_h = math.floor(m.height * 0.6)
-
 hl.bind(alias.mainMod .. " + CTRL + C", function()
 	hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
 	hl.dispatch(hl.dsp.window.center())
@@ -199,7 +196,7 @@ hl.bind(alias.mainMod .. " + SHIFT + C", hl.dsp.window.center(), { description =
 
 hl.bind(alias.mainMod .. " + C", function()
 	hl.dispatch(hl.dsp.window.float({ action = "enable" }))
-	hl.dispatch(hl.dsp.window.resize({ x = target_w, y = target_h, relative = false }))
+	hl.dispatch(hl.dsp.window.resize({ x = m.width * 0.65, y = m.height * 0.65, relative = false }))
 	hl.dispatch(hl.dsp.window.center())
 end, { description = "Float and center window" })
 
