@@ -23,7 +23,7 @@ local function toggle_powersave()
 			misc = { disable_autoreload = false },
 		})
 
-		hl.monitor({ output = "eDP-2", mode = "1920x1080@144", position = "auto", scale = 1.25 })
+		hl.monitor({ output = "eDP-1", mode = "1920x1080@144", position = "auto", scale = 1.25 })
 
 		os.remove(state_file)
 		hl.notification.create({ text = "Power Save OFF", timeout = 3000, icon = "ok" })
@@ -59,7 +59,7 @@ local function toggle_powersave()
 			misc = { disable_autoreload = true },
 		})
 
-		hl.monitor({ output = "eDP-2", mode = "1920x1080@60", position = "auto", scale = 1.25 })
+		hl.monitor({ output = "eDP-1", mode = "1920x1080@60", position = "auto", scale = 1.25 })
 
 		hl.notification.create({ text = "Power Save ON", timeout = 3000, icon = "ok" })
 	end

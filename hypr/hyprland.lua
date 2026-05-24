@@ -19,6 +19,7 @@ require("config.layouts.scroller")
 -- require("config.layouts.master")
 
 require("scripts.powersave")
+require("scripts.scrollerfocus")
 
 hl.config({
 	input = {
