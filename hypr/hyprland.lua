@@ -91,14 +91,14 @@ hl.config({
 			enabled = true,
 			range = 17,
 			render_power = 4,
-			color = 0x1a1a1aaf,
+			color = "rgba(1a1a1aaf)",
 		},
 	},
 
 	group = {
 		auto_group = false,
-		["col.border_active"] = 0xffb4befe,
-		["col.border_inactive"] = 0xff313244,
+		["col.border_active"] = "rgba(ffb4befe)",
+		["col.border_inactive"] = "rgba(ff313244)",
 
 		groupbar = {
 			rounding = 5,
@@ -110,8 +110,8 @@ hl.config({
 			indicator_gap = 4,
 			indicator_height = 16,
 			round_only_edges = false,
-			["col.active"] = 0xff89b4fa,
-			["col.inactive"] = 0xffb4befe,
+			["col.active"] = "rgba(ff89b4fa)",
+			["col.inactive"] = "rgba(ffb4befe)",
 			keep_upper_gap = true,
 			text_offset = -8,
 		},
