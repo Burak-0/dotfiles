@@ -42,7 +42,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "Float-Class",
 	match = {
-		class = "^(7zFM|org.pulseaudio.pavucontrol|com.github.hluk.copyq|\
+		class = "^(7zFM|com.github.hluk.copyq|\
               |xdg-desktop-portal-gtk.*|xdg-desktop-portal-kde.*|xdg-desktop-portal-hyprland.*|\
               |discord)$",
 	},

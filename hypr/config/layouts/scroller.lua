@@ -1,11 +1,6 @@
 local alias = require("config.alias")
 
 -- Window Navigation
-hl.bind(
-	alias.mainMod .. " + apostrophe",
-	hl.dsp.exec_cmd(alias.configPath .. "/scripts/scrollerfocus.sh"),
-	{ description = "Focus scroller window" }
-)
 hl.bind(alias.mainMod .. " + comma", hl.dsp.layout("focus l"), { description = "Focus left column" })
 hl.bind(alias.mainMod .. " + period", hl.dsp.layout("focus r"), { description = "Focus right column" })
 

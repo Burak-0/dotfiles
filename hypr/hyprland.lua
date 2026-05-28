@@ -130,7 +130,7 @@ hl.config({
 		disable_hyprland_logo = true,
 		mouse_move_enables_dpms = true,
 		key_press_enables_dpms = true,
-		initial_workspace_tracking = 1,
+		initial_workspace_tracking = 0,
 		animate_manual_resizes = true,
 		animate_mouse_windowdragging = true,
 		font_family = "SF Pro Display Medium",

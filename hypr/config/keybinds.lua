@@ -8,7 +8,7 @@ hl.bind(alias.mainMod .. " + E", hl.dsp.exec_cmd(alias.filemanager), { descripti
 
 hl.bind(
 	alias.mainMod .. " + A",
-	hl.dsp.exec_cmd(alias.ipc .. " plugin:screen-toolkit annotate"),
+	hl.dsp.exec_cmd(alias.path .. "/scripts/screenshot.sh"),
 	{ description = "Capture selected area" }
 )
 hl.bind(

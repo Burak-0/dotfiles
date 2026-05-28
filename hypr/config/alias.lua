@@ -5,7 +5,7 @@ local alias = {
 	terminal = "kitty",
 	browser = "zen-browser &",
 	browserClass = "zen",
-	configPath = "~/.config/hypr",
+	path = "~/.config/hypr",
 	ipc = "qs -c noctalia-shell ipc call",
 }
 

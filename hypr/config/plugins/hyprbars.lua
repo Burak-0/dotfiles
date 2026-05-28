@@ -1,5 +1,5 @@
 local color = require("color")
-local size = 13
+local size, icon = 13, ""
 
 hl.config({
 	plugin = {
@@ -24,7 +24,7 @@ hl.plugin.hyprbars.add_button({
 	fg_color = "rgb(ffffff)",
 	size = size,
 	action = "hyprctl dispatch killactive",
-	icon = "",
+	icon = icon,
 })
 
 hl.plugin.hyprbars.add_button({
@@ -32,7 +32,7 @@ hl.plugin.hyprbars.add_button({
 	fg_color = "rgb(ffffff)",
 	size = size,
 	action = "hyprctl dispatch fullscreenstate 1",
-	icon = "",
+	icon = icon,
 })
 
 hl.plugin.hyprbars.add_button({
@@ -40,5 +40,5 @@ hl.plugin.hyprbars.add_button({
 	fg_color = "rgb(ffffff)",
 	size = size,
 	action = "hyprctl dispatch togglefloating",
-	icon = "",
+	icon = icon,
 })
